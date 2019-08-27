@@ -1,0 +1,247 @@
+@charset "utf-8";
+
+#navMenu{
+    margin: 0px;
+    position: relative;
+    top:0px;
+    margin-left: 168px;
+    padding:0px;
+}
+
+#navMenu ul{
+    padding: 0;
+    line-height: 30px;     
+}
+
+#navMenu li{
+    padding: 0px;
+    list-style: none;
+    float: left;
+    position: relative;
+    background: #000080;
+}
+
+#navMenu ul li a{
+    text-align: center;
+    font-family: serif;
+    text-decoration: none;
+    height: 32px;
+    width: 135.5px;
+    display:inherit;
+    color: #FFF;
+    border: 1px solid #FFF;
+    text-shadow: 1px 1px 1px #000;
+}
+#formList{
+    padding-left: 40px;
+}
+
+#navMenu ul ul{
+    position: absolute;
+    visibility: hidden;
+    top: 30px;
+}
+
+#navMenu ul ul ul{
+    position: absolute;
+    visibility: hidden;
+    top: 30px;
+    padding-left: 150px;
+}
+
+
+#navMenu ul li:hover ul li{
+    visibility: visible;
+}
+
+
+
+#navMenu ul ul li:hover ul{
+    visibility: visible;
+}
+
+#navMenu li:hover{
+    background: #09F;
+}
+#navMenu ul li:hover ul li a:hover {
+    background: #CCC;
+    color: #000;
+}
+
+#navMenu a:hover{
+    color: #000;
+}
+.cFl{
+    clear:both;
+    padding:0;
+    margin:0;
+    
+}
+
+#sideBar{
+    position: absolute;
+    top: 113px;
+    padding-bottom: inherit;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 14px;
+    background: #000080;
+    border: 3px dotted #ffffff;
+    border-radius: 10px;
+    border-bottom-left-radius: 50px;
+    border-bottom-style: double;
+    color: #FFF;
+    
+}
+#sideBar li a{
+    margin-left: 0px;
+    color: #FFF;
+    border: 1px solid #ffffff;
+    background: #008000;
+    border-radius: 5px;
+    padding: 2px;    
+}
+
+#sideBar li{
+    list-style:  none;
+    text-decoration: none;
+    text-align: left;
+    
+}
+
+#sideBar li a{
+    text-decoration: none;
+    text-align: left;
+    margin-left: 0px;
+
+}
+#sideBar  ul ul a{
+    background: #ff0000;
+}
+
+.innerFrame{
+    background:#EEE8AA;
+    position: static;
+    padding: 20px;
+    margin-left: 170px;
+    top: 0px;
+    border: 3px solid #c0c0c0;
+}
+
+
+
+
+.search_txtbx{
+                height: 30px;
+                font: 20px Ms sans-serif;
+                padding-right: 50px;
+                color: gray;
+                width: 163px;
+                border: 1px solid gray;
+                margin-left: 0px;
+                position: absolute; top: 80px;
+                border: 3px solid #191970;
+                background: #CCC;
+}
+
+.submitSearch{
+    position: absolute;
+    top: 83.5px;
+    margin-left: 110px;
+    height: 22.5px;
+    width: 50px;
+    color: red;
+    
+}
+
+h2{
+    font-size: 18pt;
+    margin-bottom: 15px;
+}
+
+.tile{
+    text-decoration: none;
+    text-align: center;
+    width: 100px;
+    height: 70px;
+    margin: 5px;
+    padding: 20px;
+    float: left;
+    color: #FFF;
+}
+.darkGreen{
+    background: #006400;
+
+}
+.red{
+   background: #ff80c0;
+}
+.yellow {
+    background: #FDB45C;
+}
+.blue{
+     background: #0080c0;
+}
+.double{
+    width: 250px;
+    height: 70px;
+    margin: 5px;
+    padding: 20px;
+    float: left;
+    background: #4169E1;
+}
+.blueViolet{
+      background: #8A2BE2;
+}
+.plain{
+    background: #408080;
+
+}
+.magenta{
+    background: #FF00FF;
+}
+.bot{
+    float: left;
+    background: #408080; 
+}
+.brown {
+    background: #FF0000;
+}
+.tile:hover{
+    background: #FFF;
+    color: #808000;
+}
+.chocolate{
+    background: #D2691E;
+}
+#main-container{
+
+}
+
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px; /* half width of the spinner gif */
+    margin-top: -50px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1234;  
+    overflow: auto;
+    width: 100px; /* width of the spinner gif */
+    height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */
+}
+
+
+
+
+
+
+#
+#
+#
+#
+#
+#
+#
+
+

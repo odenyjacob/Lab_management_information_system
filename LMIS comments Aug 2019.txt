@@ -1,0 +1,15 @@
+Footer - Remove Brian Otieno
+adding password field when adding user
+change the login screen design
+upcoming events
+view users and edit
+Blood Cell, Parasite & CTNG Table - what is CTNG, TAT, EQA
+Navigation panel search function
+Tracking sample status
+Critical Value Reporting Table no. reported should NOT be greater than events
+
+
+HMIS
+No service withou pay - hmis
+Wait list to have Clinician's name, time, request -hmis
+Cost
