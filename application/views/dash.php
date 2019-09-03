@@ -173,22 +173,15 @@ exit;
                                                
                        <li>
                             <a href=""><i class=" fa fa-users fa-fw"></i> ADMINISTRATION <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level"> 
-                                <li>   
-                                    <a href="<?php echo site_url('hcm/newEmployee');?>">Users</a> 
-                                     <ul class="nav nav-third-level"> 
-                                       <li>   
-                                        <a href="<?php echo site_url('hcm/newEmployee');?>">Add User</a> 
-                                        </li>
-                                        <li>   
-                                        <a href="<?php echo site_url('samples/samples');?>">View Users</a> 
-                                        </li>
-                                     </ul>    
-                                </li>   
+                            <ul class="nav nav-second-level">                        
                                  
                                 <li>   
-                                    <a href="<?php echo site_url('centers/centersTable');?>">Centers</a> 
+                                    <a href="<?php echo site_url('users/users');?>">Users</a> 
                                 </li>   
+
+                                <li>   
+                                    <a href="<?php echo site_url('centers/centersTable');?>">Centers</a> 
+                                </li> 
 
                                 <li>   
                                     <a href="<?php echo site_url('centers/branchesTable');?>">Branches</a> 

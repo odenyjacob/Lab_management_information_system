@@ -1,11 +1,20 @@
-Footer - Remove Brian Otieno
+
 adding password field when adding user
-change the login screen design
-upcoming events
+is the default password - p@55w0rd for new user to logi in?
+-change the login screen design - done
+
 view users and edit
 Blood Cell, Parasite & CTNG Table - what is CTNG, TAT, EQA
-Navigation panel search function
-Tracking sample status
+Navigation panel search function not working
+Add the investigation requested for(BS for MPS, Culture, Stool analysis, Urinalysis, Blood chemeistries)) on the add samples form
+Tracking sample status as received (disable after receiving or on rejection (provide pop up form for reason))
+	Once received, they get processed then Reported back  and the report be availble for the clinician/Whoever made the request.
+How does the receive and reject sample form work and what's the difference between it and sample rejection module
+Received sample module not working.
+Using the graphs - how to
+
+
+
 Critical Value Reporting Table no. reported should NOT be greater than events
 
 

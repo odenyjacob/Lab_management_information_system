@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Centers_Model extends CI_Model {
+class Users_Model extends CI_Model {
 	function __construct(){  
 		parent::__construct();
 		$this->load->database(); 
@@ -23,21 +23,21 @@ class Centers_Model extends CI_Model {
     }
 	
 	
-	function getCentersTable() {
+	function getUsersTable() {
 
         // this code is daconceptsable js framework. http://www.daconceptsables.net/
         // so we have follow some data format.
         //this array content table sorting row
-        $aColumns = array('id', 'name', 'status', 'location', 'username');
+        $aColumns = array('id', 'FName', 'LName', 'userName', 'username');
 
         //this array result column database
-        $aResultColumns = array('id','name', 'status', 'location', 'username');
+        $aResultColumns = array('id','FName', 'LName', 'userName', 'username');
 
         /* Indexed column (used for fast and accurate table cardinality) */
         $sIndexColumn = "id";
 
         /* DB table to use */
-        $sTable = "centers";
+        $sTable = "users";
 
         // this code for start and end limt
         $sLimit = "";
@@ -122,7 +122,7 @@ class Centers_Model extends CI_Model {
         for ($i = 0; $i < count($rResult); $i++) {
             $row = array();
             $row = $rResult[$i];
-            $row['edit'] = "<a class='various btn btn-sm btn-success' data-fancybox-type='iframe' href='" . base_url() . "index.php/centers/popupadd/{$row['id']}'>edit</a>";
+            $row['edit'] = "<a class='various btn btn-sm btn-success' data-fancybox-type='iframe' href='" . base_url() . "index.php/users/popupadd/{$row['id']}'>edit</a>";
             $row['delete'] = "<a class='deleteRecord btn btn-sm btn-danger' onclick= 'deleteRecord({$row['id']})' >delete</a>";
             $output['aaData'][] = $row;
         }
@@ -235,73 +235,44 @@ class Centers_Model extends CI_Model {
         echo json_encode($output);
     }
 
-    function getCentersId($id) {
+    function getUserId($id) {
         $sQuery = "SELECT *
-                   FROM centers           
+                   FROM users           
                    WHERE id = '{$id}'
                   ";
         $result = $this->db->query($sQuery, FALSE);
         $result = $this->convertResultsetToArray($result);
         return $result;
     }
-    function getBranchesId($id) {
-        $sQuery = "SELECT *
-                   FROM branches           
-                   WHERE id = '{$id}'
-                  ";
-        $result = $this->db->query($sQuery, FALSE);
-        $result = $this->convertResultsetToArray($result);
-        return $result;
-    }
+     
 	
-	function addCenter($data){
-		if($this->db->insert('centers', $data)){
+	function addUser($data){
+		if($this->db->insert('users', $data)){
 			return true;
 		}else{
 			return false;
 		}
 
-	}
-
-	function addBranch($data){
-		if($this->db->insert('branches', $data)){
-			return true;
-		}else{
-			return false;
-		}
-
-	}
+	} 
 	
-	function updateCenter($data){
+	function updateUser($data){
 		extract($data);
 		$this->db->where('id', $id);
-		if($this->db->update('centers', $data)){
+		if($this->db->update('users', $data)){
 			return true;
 		}else{
 			return false;
 		}
 	}
-	
-	function updateBranch($data){
-		extract($data);
-		$this->db->where('id', $id);
-		if($this->db->update('branches', $data)){
-			return true;
-		}else{
-			return false;
-		}
-	}
-	
-	function deleteCenters($data){ 
+	 	
+	function deleteUser($data){ 
 		extract($data);
 		$insert = array(
-			'id' => $id,
-			'username' => $this->session->userdata('userName'),
-			'status' => 'deleted',
+			'id' => $id, 
 		);
 		$this->db->where('id', $id );	
-		if($this->db->update('centers', $insert)){
-			$this->db->delete('centers', array('id' => $data['id'])); 
+		if($this->db->update('users', $insert)){
+			$this->db->delete('users', array('id' => $data['id'])); 
 			return true;
 		}else{
 			return false;

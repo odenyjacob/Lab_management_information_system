@@ -673,8 +673,24 @@ function convetResultsetToArray($Q) {
 			return false;
 		}
 		
-	}
-	
+    }
+    
+    function deleteSamples($data){
+		extract($data);
+		$insert = array(
+			'id' => $id,
+			'userName' => $this->session->userdata('userName'),
+			'status' => 'deleted',
+		);
+		$this->db->where('id', $id );	
+		if($this->db->update('samples', $insert)){
+			$this->db->delete('samples', array('id' => $data['id']));
+			return true;
+		}else{
+			return false;
+		}		
+    }
+    
 	function deleteSampleType($data){
 		extract($data);
 		$insert = array(
@@ -688,8 +704,7 @@ function convetResultsetToArray($Q) {
 			return true;
 		}else{
 			return false;
-		}
-		
+		}		
 	}
 	
 	function getTarget($search){

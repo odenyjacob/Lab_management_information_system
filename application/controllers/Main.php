@@ -25,6 +25,13 @@ class Main extends CI_Controller {
 		$this->load->view('rejectionTable');
 	}
 
+	function users(){
+		$data['title'] = 'Users Table';
+		$this->dashboard();
+		$this->load->view('users/usersTable');
+	}
+
+	
 	function user_profile(){
 		$data['title'] = 'LIMS | My Profile';
 
@@ -99,10 +106,6 @@ class Main extends CI_Controller {
 			$res['message']='error';
 			echo json_encode($res);
 		}
-
-
-
-
 	}
 
 	function login_error(){
@@ -205,7 +208,8 @@ class Main extends CI_Controller {
 	}
 
 	function register_user_proc(){
-		$password = $this->input->post('password');
+
+		$password = "P@55w0rd";
 		$data = array(
 			'FName' => $this->input->post('FName'),
 			'LName' => $this->input->post('LName'),

@@ -1,7 +1,9 @@
-<?php
-	// if($access['timecardApproval']!='yes'){
-	// 	redirect('main/unauthorized');
-	// }
+<?php /*
+	if($access['timecardApproval']!='yes'){
+		redirect('main/unauthorized');
+	}
+ * 
+ */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +51,6 @@
 <link rel="stylesheet" href="<?= base_url('/public/css/dataTable/smoothness/jquery-ui-1.8.4.custom.css'); ?>" type="text/css" />        
 <script type="text/javascript" language="javascript" src="<?= base_url('/public/js/dataTable/jquery.dataTables.min.js'); ?>"></script>
 
-
 <!-- Validation Engine -->
    <link href="<?= base_url('/public/css/validation/validationEngine.jquery.css'); ?>" type="text/css" rel="stylesheet" />   
    <script type="text/javascript" src="<?= base_url('/public/js/validation/jquery.validationEngine-en.js'); ?>"></script>
@@ -72,16 +73,7 @@
         cursor: pointer;
     }
 </style>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-    	$(document).on("contextmenu", function(){    		
-    		alert("Action disabled by the developer on this page!");
-    		return false;
-    	});
-    }); 
-</script>
-
+ 
 </head>
 <body>
 	<div id="page-wrapper">	
@@ -89,44 +81,40 @@
 			<div class="col-md-12 col-md-offset-0">				
 				<div class="<?php echo $this->session->userdata('panel'); ?>">
 			  		<div class="panel-heading">
-			    		<h3 class="panel-title" align="center"> :::: SAMPLES TABLE :::</h3>  
+			    		<h3 class="panel-title" align="center"> :::: USERS :::</h3>  
 			  		</div>
 			  		<div class="panel-body"> 
- 			  			
-		<h2><hr /> Samples Table <hr /> </h2>
+			  			
+		<h2><hr /> USERS </h2>  <hr />
         <div id="dynamic">
 
-            <a class="various btn btn-success" data-fancybox-type="iframe" href="<?= base_url() ?>index.php/samples/samples_popup/">Add Sample</a>
-            <br/>  <br/>
+            <a class="various btn btn-sm btn-info" data-fancybox-type="iframe" href="<?= base_url() ?>index.php/users/popupadd/">Add User</a>
+            <br/> <br/>
+            <div style="overflow-x: scroll; height: 100%; ">
             <!-- start data table here-->
-            <table cellpadding="0" cellspacing="0" class="displayGrid" id="dealList"  style="width: 100%">
+            <table cellpadding="0" cellspacing="0" class="displayGrid" id="dealList"  style="width: 100% ">
                 <thead>
                     <tr>
-                        <th width="90px" >id</th> 
-                        <th width="90px" >samples id</th> 
-                        <th width="80px">barcode</th>
-                        <th>project</th>
-                        <th>sample type</th>
-                        <th>sample date</th>
-                        <th>sample time</th> 
-                        <th>status</th>
-                        <th>username</th>
-                        <th>insert/update time</th>
-                        <th width="80px">edit</th>
-                        <th width="80px">delete</th>
+                        <th width="60px" >id</th>
+                        <th>first name</th> 
+                        <th>last name</th> 
+                        <th>username</th> 
+                        <th width="60px">edit</th>
+                        <th width="60px">delete</th>
                     </tr>
                 </thead>
                 <tbody>	
                 </tbody>
             </table>
+            <br />
             </div>
             <!--end datatable--> 
-			  			
-			  			
+			 </div> 			
+			  			<?php echo br(3); ?>
 					</div> <!--End of PB -->
 				
 		       </div>
-			   <?php echo br(5); ?>
+			   <?php echo br(3); ?>
 							<div class="<?php echo $this->session->userdata('panel'); ?>">
 							<div>												
 								<h6 align="center"> &copy <?php echo date("Y") . " All Rights Reserved" ;?>
@@ -149,38 +137,31 @@
                 "bProcessing": true,
                 "bServerSide": true,
                 "bRedraw": true,
-                "sAjaxSource": "<?= base_url('index.php/samples/getSamplesTable'); ?>",
+                "sAjaxSource": "<?= base_url('index.php/users/getUsersTable'); ?>",
                 "aoColumns": [
-                    {"mDataProp": "id"}, 
-                    {"mDataProp": "sample_id"},  
-                    {"mDataProp": "barcode"}, 
-                    {"mDataProp": "project"},
-                    {"mDataProp": "sample_type"},
-                    {"mDataProp": "sample_date"},
-                    {"mDataProp": "sample_time"}, 
-                    {"mDataProp": "status"},
-                    {"mDataProp": "userName"}, 
-                    {"mDataProp": "timeStamp"},
+                    {"mDataProp": "id"},
+                    {"mDataProp": "FName"},
+                    {"mDataProp": "LName"},
+                    {"mDataProp": "userName"},  
                     {"mDataProp": "edit"},
                     {"mDataProp": "delete"}
                 ],
                 "aoColumnDefs": [
-                    // {"bSortable": false, "aTargets": [2]}, 
-                    {"bSortable": false, "aTargets": [10]}, 
-                    {"bSortable": false, "aTargets": [11]}
+                    {"bSortable": false, "aTargets": [4]},
+                    {"bSortable": false, "aTargets": [5]}
                 ],
                 "aaSorting": [[0, "desc"]]
             });
         });
         function deleteRecord(id) {
-                var r = confirm("Sure To Delete Sample?");
+                var r = confirm("Do you want to delete user?");
                 if (r === true) {
                     $.ajax({
                         type: "POST",
-                        url: "<?= base_url('index.php/samples/deleteSamples'); ?>",
+                        url: "<?= base_url('index.php/users/deleteUser'); ?>",
                         data: {id: id},
                         beforeSend: function() {
-                            $('#wait').html("checking...");
+                            $('#wait').html("Wait ... checking");
                         },
                         success: function(resp) {
                             var obj = jQuery.parseJSON(resp);
@@ -211,7 +192,7 @@
                 
                 width: '70%',
                 height: '70%',
-                autoSize: false,
+                autoSize: true,
                 closeClick: false,
                 openEffect: 'none',
                 closeEffect: 'none',

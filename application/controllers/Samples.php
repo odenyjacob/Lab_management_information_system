@@ -203,6 +203,7 @@ class Samples extends CI_Controller {
 					'project' => $this->input->post('project'),
 					'sample_date' => $this->input->post('sample_date'),
 					'sample_time' => $this->input->post('sample_time'),
+					'investigation_requested' => $this->input->post('investigation_requested'),					
 					'status' => 'new', 
 					'userName' => $this->session->userdata('userName'),
 				
@@ -299,10 +300,24 @@ class Samples extends CI_Controller {
         }        
       
 	}
-
+	
 	function deleteSampleType(){
 		$data = $_REQUEST;
         if($this->samples_model->deleteSampleType($data)){
+        	 $output['success'] = 1;
+        	 $output['msg'] = "Records deleted successfully";
+        
+        	echo json_encode($output);
+        }else{
+        	$output['success'] = 0;
+        	 $output['msg'] = "Error: Records not deleted! Try again";
+        }        
+      
+	}
+
+	function deleteSamples(){
+		$data = $_REQUEST;
+        if($this->samples_model->deleteSamples($data)){
         	 $output['success'] = 1;
         	 $output['msg'] = "Records deleted successfully";
         

@@ -138,6 +138,21 @@
 							echo form_input($fieldname);
 							echo br();
 							
+							// <?php 
+							// Investigation requested
+							echo form_label('Investigation requested');
+							$fieldname = array(
+							'type' => 'text',
+							'name' => 'investigation_requested',
+							// 'class' => 'form-control validate[required, custom[date]]',
+							'placeholder' => 'Investigation requested',
+							'id' => 'investigation_requested',
+							'required' => 'required',
+							'value' => $this->investigation_requested, 
+							);
+							echo form_input($fieldname);
+							echo br();
+
 							// Sample Time
 							echo form_label('Sample Time');
 							$fieldname = array(
